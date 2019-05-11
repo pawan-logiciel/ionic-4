@@ -7,8 +7,25 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  	<div class="ion-padding">
+		<input type="text" [(ngModel)]="frm.name">
+		{{name}}
+		<input type="text" [(ngModel)]="frm.age">
+		<button (click)="addUser()">Submit</button>
+  	</div>
+  	<table>
+  		<tr>
+  			<th>Name</th>
+  			<th>Age</th>
+  			<th>Actions</th>
+  		</tr>
+  		<tr *ngFor="let user of users">
+  			<td>{{user.id}}</td>
+  			<td>{{user.age}}</td>
+  			<td>
+  				<button (click)="editUser(user)">Edit</button>
+  				<button (click)="deleteUser(user)">Delete</button>
+  			</td>
+  		</tr>
+  	</table>
 </ion-content>
